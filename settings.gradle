@@ -1,0 +1,3 @@
+rootProject.name='PgyerUploader'
+include ':app'
+include ':pgyer'

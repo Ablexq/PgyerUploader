@@ -1,0 +1,17 @@
+apply plugin: 'groovy'
+
+dependencies {
+    //gradle sdk
+    implementation gradleApi()
+    //groovy sdk
+    implementation localGroovy()
+    implementation 'com.android.tools.build:gradle:3.6.1'
+}
+repositories {
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+    jcenter()
+    google()
+    mavenLocal()
+}
+
+apply from: 'maven.gradle'
