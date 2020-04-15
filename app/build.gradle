@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 //1/2、引入
-apply plugin: 'com.xq.pgyer'
-
-//2/2、
-pgyerExtension {
-    buildUpdateDescription '上传了'
-}
+//apply plugin: 'com.xq.pgyer'
+//
+////2/2、
+//pgyerExtension {
+//    buildUpdateDescription '上传了'
+//}
 
 android {
     compileSdkVersion 29
@@ -38,6 +38,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    //
+    implementation 'com.github.Ablexq:PgyerUploader:v1.0.0'
 }
 //def url = "https://www.baidu.com/"
 //

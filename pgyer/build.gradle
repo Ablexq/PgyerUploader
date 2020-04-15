@@ -1,7 +1,4 @@
 apply plugin: 'groovy'
-//apply plugin: 'com.github.dcendents.android-maven'
-
-group='com.github.Ablexq'
 
 dependencies {
     //gradle sdk
@@ -17,4 +14,8 @@ repositories {
     mavenLocal()
 }
 
-apply from: 'maven.gradle'
+//本地maven打包
+//apply from: 'mavenlocal.gradle'
+//
+//远程maven打包
+apply from: 'mavenremote.gradle'
