@@ -111,7 +111,85 @@ dos.write(sb.toString().getBytes("UTF-8"))
         group = "publish"
     }
 ```
-# 
+
+
+
+# 远程plugin的生成
+
+[jitpack官网（可查看所有库及版本）](https://jitpack.io/)
+
+[jitpack官方集成文档](https://jitpack.io/docs/ANDROID/)
+
+gradle版本需要在4.6之上
+
+1) 根目录下 build.gradle:
+
+```
+buildscript { 
+  dependencies {
+    classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1' // Add this line
+```
+
+2) library/build.gradle add:
+
+```
+ apply plugin: 'com.github.dcendents.android-maven'  
+
+ group='com.github.Ablexq'
+```
+
+3) Create a GitHub release or add a git tag.
+
+# 使用plugin： 
+
+因为我们是plugin 不是Java library，所以引用有所不同。
+
+- 根目录的build.gradle : 
+
+这里和本地仓库的模式一致。
+
+```kotlin
+
+buildscript {
+
+    repositories {
+//        maven {
+//            //1/2、本地Maven仓库地址
+//            url uri('repo')
+//        }
+        google()
+        jcenter()
+        
+        //一/二 、 远程仓库
+        maven { url 'https://jitpack.io' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.6.1'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1' // Add this line
+//        //2/2、导入本地库
+//        classpath 'com.xq.plugin:pgyer:1.0.0'
+        
+        //二/二 、导入远程库
+        classpath 'com.github.Ablexq:PgyerUploader:1.0.2'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+```
+- app.gradle:
+
+这里和本地仓库引入一样的方式
+
+```kotlin
+//1/2、引入
+apply plugin: 'com.xq.pgyer'
+
+//2/2、
+pgyerExtension {
+    buildUpdateDescription '上传了'
+}
+```
 
 
 
